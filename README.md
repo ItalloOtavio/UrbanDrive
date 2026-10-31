@@ -54,21 +54,19 @@ A priorização e as dependências entre os itens estão no [Product Backlog](do
 
 ## Estrutura do repositório
 
-Estrutura prevista (a solução C# é criada na tarefa T01 da Sprint 1):
-
 ```
 UrbanDrive/
 ├── src/
 │   ├── UrbanDrive.Models/   # entidades, interfaces e regras de negócio
-│   └── UrbanDrive.App/      # aplicação de console (Program.cs)
-├── tests/
+│   ├── UrbanDrive.App/      # aplicação de console (Program.cs)
 │   └── UrbanDrive.Tests/    # testes unitários (xUnit)
 ├── docs/
 │   ├── enunciado.md         # enunciado do professor
 │   ├── product-backlog.md   # backlog priorizado e seu histórico
 │   ├── sprints/             # planejamento, resultado e retrospectiva de cada sprint
 │   ├── diagramas/           # diagramas de classes
-│   └── evidencias/          # saídas de testes e capturas de tela por sprint
+│   └── evidencias/          # saídas de testes e capturas de tela (sprint-1/, sprint-2/...)
+├── UrbanDrive.slnx          # solução C#
 ├── .gitignore
 └── README.md
 ```
@@ -91,8 +89,6 @@ dotnet run --project src/UrbanDrive.App
 # executar os testes
 dotnet test
 ```
-
-> Os comandos passam a funcionar quando a estrutura da solução (T01) estiver na `main`.
 
 ## Fluxo de trabalho
 
