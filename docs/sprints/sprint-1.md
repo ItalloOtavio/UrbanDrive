@@ -96,10 +96,12 @@ _Preencher ao final da sprint com a situação real (concluído, parcialmente co
 | T10 | Concluído | PRs #70 e #71; `docs/evidencias/sprint-1/` | Capturas `resultado-testes.png` e `demonstracao-console.png`. |
 | T11 | Concluído | PR #74; seções G e H deste documento | |
 
-**Pendências:** nenhuma pendência técnica. Todas as tarefas planejadas foram concluídas e os 22 testes passam.
+**Pendências:** todas as tarefas planejadas foram concluídas e os 22 testes passam. Dois critérios de aceitação do PB02 não foram atendidos por completo e passam para a Sprint 2:
+- Só o PR #74 teve revisão registrada no GitHub. Os demais foram integrados sem aprovação formal de outro integrante, e os PRs abertos por `@ItalloOtavio` foram integrados pelo próprio autor. Na próxima sprint, todo PR deve ter a aprovação de outro integrante antes do merge.
+- `@Duda1301` e `@AlehMartins` ainda não têm commit no padrão Conventional Commits (ex.: `Update sprint-1.md`, `Create Diagrama de Classe`). Na próxima sprint, todos os commits devem seguir o padrão descrito no README.
 
 **Decisões revistas:**
-- A propriedade da diária foi implementada como `ValorBaseDiaria` em vez de `ValorDiaria`, como estava no planejamento (T06). O nome deixa claro que é o valor base, sobre o qual as próximas sprints vão aplicar o cálculo de aluguel.
+- A propriedade da diária foi implementada como `ValorBaseDiaria` em vez de `ValorDiaria`, como estava no planejamento (T06). O nome segue o enunciado, que fala em "valor-base da diária", e deixa claro que é sobre esse valor que as próximas sprints vão aplicar o cálculo de aluguel.
 - Id e valor da diária inválidos passaram a lançar `ArgumentOutOfRangeException` em vez de `ArgumentException` (PR #68), para seguir os critérios de aceitação do PB04.
 - A pasta de evidências foi renomeada de `docs/evidencias/sprint1` para `docs/evidencias/sprint-1` (PR #71), para seguir o caminho previsto no planejamento.
 
