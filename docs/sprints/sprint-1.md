@@ -3,7 +3,7 @@
 ## A. Identificação
 
 - **Grupo:** _(preencher)_
-- **Integrantes:** _(preencher)_
+- **Integrantes:** `@ItalloOtavio`, `@Manuela-Souza`, `@AlehMartins`, `@Wtsjr`, `@Duda1301`
 - **Número da sprint:** 1
 - **Período:** _(dd/mm/aaaa a dd/mm/aaaa)_
 - **Responsável pelo acompanhamento:** _(preencher)_
@@ -27,17 +27,17 @@ Unidade de estimativa: **horas de trabalho**.
 
 | ID | Tarefa | Item relacionado | Responsável | Estimativa |
 |---|---|---|---|---|
-| T01 | Criar a solução C# com os projetos `UrbanDrive.Models`, `UrbanDrive.App` (console) e `UrbanDrive.Tests` (xUnit) | PB01 | _(definir)_ | 2 h |
-| T02 | Criar o `.gitignore` (ignorando `.vs/`, `bin/` e `obj/`), a pasta `docs/` e remover o `Veiculo.cs` solto na raiz | PB01 | _(definir)_ | 0,5 h |
-| T03 | Combinar o padrão de branches (`feature/`, `fix/`, `docs/`), Conventional Commits e a regra de revisão por pull request; registrar no README | PB02 | _(definir)_ | 1 h |
-| T04 | Elaborar o Product Backlog inicial priorizado (`docs/product-backlog.md`) | Planejamento | _(definir)_ | 2 h |
-| T05 | Desenhar o diagrama de classes inicial com `Veiculo` detalhada e as demais entidades previstas (só nomes e ligações) em `docs/diagramas/` | PB03 | _(definir)_ | 2 h |
-| T06 | Implementar `Veiculo` com Id, Placa, Modelo e ValorDiaria usando atributos privados, propriedades públicas e construtor | PB04 | _(definir)_ | 2 h |
-| T07 | Implementar as validações de `Veiculo` no construtor e nos setters das propriedades | PB04 | _(definir)_ | 2 h |
-| T08 | Escrever os testes unitários de `Veiculo` (casos válidos e inválidos) | PB04 | _(definir)_ | 3 h |
-| T09 | Demonstrar no `Program.cs` a criação de veículos válidos e a tentativa de criar inválidos, tratando as exceções com `try/catch` | PB04 | _(definir)_ | 1,5 h |
-| T10 | Registrar as evidências: saída do `dotnet test` e da demonstração no console, com capturas de tela, em `docs/evidencias/sprint-1/` | PB04 | _(definir)_ | 1 h |
-| T11 | Preencher o resultado da sprint (seção G) e a retrospectiva (seção H) | Planejamento | _(definir)_ | 1 h |
+| T01 | Criar a solução C# com os projetos `UrbanDrive.Models`, `UrbanDrive.App` (console) e `UrbanDrive.Tests` (xUnit) | PB01 | `@Wtsjr` | 2 h |
+| T02 | Criar o `.gitignore` (ignorando `.vs/`, `bin/` e `obj/`), a pasta `docs/` e remover o `Veiculo.cs` solto na raiz | PB01 | `@Wtsjr` | 0,5 h |
+| T03 | Combinar o padrão de branches (`feature/`, `fix/`, `docs/`), Conventional Commits e a regra de revisão por pull request; registrar no README | PB02 | `@ItalloOtavio` | 1 h |
+| T04 | Elaborar o Product Backlog inicial priorizado (`docs/product-backlog.md`) | Planejamento | `@ItalloOtavio` | 2 h |
+| T05 | Desenhar o diagrama de classes inicial com `Veiculo` detalhada e as demais entidades previstas (só nomes e ligações) em `docs/diagramas/` | PB03 | `@Duda1301` | 2 h |
+| T06 | Implementar `Veiculo` com Id, Placa, Modelo e ValorDiaria usando atributos privados, propriedades públicas e construtor | PB04 | `@Manuela-Souza` | 2 h |
+| T07 | Implementar as validações de `Veiculo` no construtor e nos setters das propriedades | PB04 | `@Manuela-Souza` | 2 h |
+| T08 | Escrever os testes unitários de `Veiculo` (casos válidos e inválidos) | PB04 | `@ItalloOtavio` | 3 h |
+| T09 | Demonstrar no `Program.cs` a criação de veículos válidos e a tentativa de criar inválidos, tratando as exceções com `try/catch` | PB04 | `@AlehMartins` | 1,5 h |
+| T10 | Registrar as evidências: saída do `dotnet test` e da demonstração no console, com capturas de tela, em `docs/evidencias/sprint-1/` | PB04 | `@AlehMartins` | 1 h |
+| T11 | Preencher o resultado da sprint (seção G) e a retrospectiva (seção H) | Planejamento | `@Duda1301` | 1 h |
 | | | | **Total** | **18 h** |
 
 ## E. Critérios de aceitação
