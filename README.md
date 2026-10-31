@@ -19,10 +19,10 @@ Projeto da disciplina de Programação Orientada a Objetos, desenvolvido em **C#
 | Integrante | GitHub |
 |---|---|
 | Itallo Otavio | [@ItalloOtavio](https://github.com/ItalloOtavio) |
-| _(nome)_ | [@Manuela-Souza](https://github.com/Manuela-Souza) |
-| _(nome)_ | [@AlehMartins](https://github.com/AlehMartins) |
-| _(nome)_ | [@Wtsjr](https://github.com/Wtsjr) |
-| _(nome)_ | [@Duda1301](https://github.com/Duda1301) |
+| Manuela Souza | [@Manuela-Souza](https://github.com/Manuela-Souza) |
+| Alexandre Martins | [@AlehMartins](https://github.com/AlehMartins) |
+| Wagner Teofilo | [@Wtsjr](https://github.com/Wtsjr) |
+| Maria Eduarda | [@Duda1301](https://github.com/Duda1301) |
 
 As tarefas e seus responsáveis são acompanhados no [quadro do projeto](https://github.com/users/ItalloOtavio/projects/11).
 
