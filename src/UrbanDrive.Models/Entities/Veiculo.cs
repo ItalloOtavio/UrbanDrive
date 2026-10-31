@@ -3,40 +3,83 @@ namespace UrbanDrive.Models.Entities;
 
 public class Veiculo
 {
+
     private int id;
-    private string placa;
-    private string modelo;
+    private string placa = "";
+    private string modelo = "";
     private double valorBaseDiaria;
+
 
     public int Id
     {
         get { return id; }
-        set { id = value; }
+        set
+        {
+            if (value <= 0)
+            {
+                throw new ArgumentException("Id invalido!");
+            }
+
+            id = value;
+        }
     }
 
+
+    
     public string Placa
     {
         get { return placa; }
-        set { placa = value; }
+        set
+        {
+            if (value == null || value.Trim() == "")
+            {
+                throw new ArgumentException("Placa invalida!");
+            }
+
+            placa = value;
+        }
     }
+
+
 
     public string Modelo
     {
         get { return modelo; }
-        set { modelo = value; }
+        set
+        {
+            if (value == null || value.Trim() == "")
+            {
+                throw new ArgumentException("Modelo invalido!");
+            }
+
+            modelo = value;
+        }
     }
+
+
 
     public double ValorBaseDiaria
     {
         get { return valorBaseDiaria; }
-        set { valorBaseDiaria = value; }
+        set
+        {
+            if (value <= 0)
+            {
+                throw new ArgumentException("Valor da diaria invalido!");
+            }
+
+            valorBaseDiaria = value;
+        }
     }
+
+
 
     public Veiculo(int id, string placa, string modelo, double valorBaseDiaria)
     {
-        this.id = id;
-        this.placa = placa;
-        this.modelo = modelo;
-        this.valorBaseDiaria = valorBaseDiaria;
+        Id = id;
+        Placa = placa;
+        Modelo = modelo;
+        ValorBaseDiaria = valorBaseDiaria;
     }
+
 }
