@@ -84,17 +84,17 @@ _Preencher ao final da sprint com a situação real (concluído, parcialmente co
 
 | Item ou tarefa | Situação | Evidência | Observações |
 |---|---|---|---|
-| T01 | | | |
-| T02 | | | |
-| T03 | | | |
-| T04 | | | |
-| T05 | | | |
-| T06 | | | |
-| T07 | | | |
-| T08 | | | |
-| T09 | | | |
-| T10 | | | |
-| T11 | | | |
+| T01 |Concluído| | |
+| T02 |Concluído| | |
+| T03 |Concluído| | |
+| T04 |Concluído| | |
+| T05 |Concluído| | |
+| T06 |Concluído| | |
+| T07 |Concluído| | |
+| T08 |Concluído| | |
+| T09 |Concluído| | |
+| T10 |Concluído| | |
+| T11 |Concluído| | |
 
 **Pendências:** _(preencher)_
 
@@ -103,13 +103,13 @@ _Preencher ao final da sprint com a situação real (concluído, parcialmente co
 ## H. Retrospectiva
 
 **O que funcionou bem?**
-_(preencher)_
+Um dos pontos que deu certo durante a sprint foi a divisão de tarefas entre os integrantes do grupo. Cada membro ficou responsável por atividades específicas, o que ajudou a organizar melhor o trabalho e permitiu que as tarefas fossem desenvolvidas de forma mais eficiente
 
 **Quais foram as principais dificuldades?**
 _(preencher)_
 
-**O planejamento foi adequado ao esforço necessário?** (comparar as horas estimadas com as realizadas)
-_(preencher)_
+**O planejamento foi adequado ao esforço necessário?** 
+Sim, o planejamento foi adequado ao esforço necessário, pois a divisão das tarefas permitiu que a equipe se organizasse melhor e realizasse as atividades dentro do período previsto.
 
 **O que deverá ser melhorado na próxima sprint?**
-_(preencher)_
+Deverá ser melhorado o acompanhamento das tarefas durante a sprint, para identificar possíveis dificuldades com antecedência e garantir que todas as atividades sejam concluídas com antecedência.
