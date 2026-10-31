@@ -84,17 +84,17 @@ _Preencher ao final da sprint com a situação real (concluído, parcialmente co
 
 | Item ou tarefa | Situação | Evidência | Observações |
 |---|---|---|---|
-| T01 | | | |
-| T02 | | | |
-| T03 | | | |
-| T04 | | | |
-| T05 | | | |
-| T06 | | | |
-| T07 | | | |
-| T08 | | | |
-| T09 | | | |
-| T10 | | | |
-| T11 | | | |
+| T01 |Concluído| |Tarefa finalizada conforme planejado.|
+| T02 |Concluído| |Tarefa finalizada conforme planejado.|
+| T03 |Concluído| |Tarefa finalizada conforme planejado.|
+| T04 |Concluído| |Tarefa finalizada conforme planejado.|
+| T05 |Concluído| |Tarefa finalizada conforme planejado.|
+| T06 |Concluído| |Tarefa finalizada conforme planejado.|
+| T07 |Concluído| |Tarefa finalizada conforme planejado.|
+| T08 |Concluído| |Tarefa finalizada conforme planejado.|
+| T09 |Concluído| |Tarefa finalizada conforme planejado.|
+| T10 |Concluído| |Tarefa finalizada conforme planejado.|
+| T11 |Concluído| |Tarefa finalizada conforme planejado.|
 
 **Pendências:** _(preencher)_
 
