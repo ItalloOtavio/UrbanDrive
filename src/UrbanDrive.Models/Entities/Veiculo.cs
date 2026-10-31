@@ -17,7 +17,7 @@ public class Veiculo
         {
             if (value <= 0)
             {
-                throw new ArgumentException("Id invalido!");
+                throw new ArgumentOutOfRangeException(nameof(Id), "Id invalido! Deve ser maior que zero.");
             }
 
             id = value;
@@ -65,7 +65,7 @@ public class Veiculo
         {
             if (value <= 0)
             {
-                throw new ArgumentException("Valor da diaria invalido!");
+                throw new ArgumentOutOfRangeException(nameof(ValorBaseDiaria), "Valor da diaria invalido! Deve ser maior que zero.");
             }
 
             valorBaseDiaria = value;
