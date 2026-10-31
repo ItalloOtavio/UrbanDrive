@@ -84,21 +84,24 @@ _Preencher ao final da sprint com a situação real (concluído, parcialmente co
 
 | Item ou tarefa | Situação | Evidência | Observações |
 |---|---|---|---|
-| T01 |Concluído| | |
-| T02 |Concluído| | |
-| T03 |Concluído| | |
-| T04 |Concluído| | |
-| T05 |Concluído| | |
-| T06 |Concluído| | |
-| T07 |Concluído| | |
-| T08 |Concluído| | |
-| T09 |Concluído| | |
-| T10 |Concluído| | |
-| T11 |Concluído| | |
+| T01 | Concluído | PR #63; `dotnet build` sem erros | Solução com `UrbanDrive.Models`, `UrbanDrive.App` e `UrbanDrive.Tests`. O `Class1.cs` gerado pelo template foi removido no PR #72. |
+| T02 | Concluído | PR #64; `.gitignore` na raiz | `.vs/`, `bin/` e `obj/` não aparecem no repositório. |
+| T03 | Concluído | PR #62; seção de fluxo de trabalho no `README.md` | |
+| T04 | Concluído | PR #60; `docs/product-backlog.md` | |
+| T05 | Concluído | PR #65; `docs/diagramas/diagrama-classes-sprint-1.png` | Diagrama corrigido e convertido de `.jpg` para `.png` no PR #72. |
+| T06 | Concluído | PR #66; `src/UrbanDrive.Models/Entities/Veiculo.cs` | |
+| T07 | Concluído | PR #67; `Veiculo.cs` | Exceções de Id e diária trocadas para `ArgumentOutOfRangeException` no PR #68, conforme os critérios de aceitação. |
+| T08 | Concluído | PR #69; `UrbanDrive.Tests` com 22 testes aprovados | |
+| T09 | Concluído | PR #70; `src/UrbanDrive.App/Program.cs` | Demonstração completada no PR #71 com um caso inválido para cada regra. |
+| T10 | Concluído | PRs #70 e #71; `docs/evidencias/sprint-1/` | Capturas `resultado-testes.png` e `demonstracao-console.png`. |
+| T11 | Concluído | PR #74; seções G e H deste documento | |
 
-**Pendências:** _(preencher)_
+**Pendências:** nenhuma pendência técnica. Todas as tarefas planejadas foram concluídas e os 22 testes passam.
 
-**Decisões revistas:** _(preencher)_
+**Decisões revistas:**
+- A propriedade da diária foi implementada como `ValorBaseDiaria` em vez de `ValorDiaria`, como estava no planejamento (T06). O nome deixa claro que é o valor base, sobre o qual as próximas sprints vão aplicar o cálculo de aluguel.
+- Id e valor da diária inválidos passaram a lançar `ArgumentOutOfRangeException` em vez de `ArgumentException` (PR #68), para seguir os critérios de aceitação do PB04.
+- A pasta de evidências foi renomeada de `docs/evidencias/sprint1` para `docs/evidencias/sprint-1` (PR #71), para seguir o caminho previsto no planejamento.
 
 ## H. Retrospectiva
 
@@ -109,7 +112,7 @@ Um dos pontos que deu certo durante a sprint foi a divisão de tarefas entre os 
 A principal dificuldade encontrada durante a sprint foi o tempo disponível para a realização das tarefas. Para as próximas sprints, será importante melhorar a organização e o acompanhamento das atividades, buscando aproveitar melhor o tempo e cumprir os prazos estabelecidos.
 
 **O planejamento foi adequado ao esforço necessário?**
-Sim, o planejamento foi adequado ao esforço necessário, pois a divisão das tarefas permitiu que a equipe se organizasse melhor e realizasse as atividades dentro do período previsto
+Sim, o planejamento foi adequado ao esforço necessário, pois a divisão das tarefas permitiu que a equipe se organizasse melhor e realizasse as atividades dentro do período previsto.
 
 **O que deverá ser melhorado na próxima sprint?**
-Deverá ser melhorado o acompanhamento das tarefas durante a sprint, para identificar possíveis dificuldades com antecedência e garantir que todas as atividades sejam concluídas
+Deverá ser melhorado o acompanhamento das tarefas durante a sprint, para identificar possíveis dificuldades com antecedência e garantir que todas as atividades sejam concluídas.
