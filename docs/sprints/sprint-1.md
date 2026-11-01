@@ -2,11 +2,10 @@
 
 ## A. Identificação
 
-- **Grupo:** _(preencher)_
 - **Integrantes:** `@ItalloOtavio`, `@Manuela-Souza`, `@AlehMartins`, `@Wtsjr`, `@Duda1301`
 - **Número da sprint:** 1
-- **Período:** _(dd/mm/aaaa a dd/mm/aaaa)_
-- **Responsável pelo acompanhamento:** _(preencher)_
+- **Período:** 23/10/2026 a 31/10/2026
+- **Responsável pelo acompanhamento:** Itallo Otavio (`@ItalloOtavio`)
 
 ## B. Objetivo da sprint
 
