@@ -25,13 +25,8 @@ Console.WriteLine($"CNH vinculada: N.º {motorista.Habilitacao.Numero} | Categor
 // 2. Veiculos e Frota (Agregacao)
 Console.WriteLine("\n=== [2] VEÍCULOS E FROTA (AGREGAÇÃO) ===");
 Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
-ConfiguradorSistema.RegistrarVeiculoCriado();
-
 Veiculo hb20 = new Veiculo(2, "XYZ9A87", "HB20", 140);
-ConfiguradorSistema.RegistrarVeiculoCriado();
-
 Veiculo kwid = new Veiculo(3, "QWE4R56", "Kwid", 120);
-ConfiguradorSistema.RegistrarVeiculoCriado();
 
 Frota frota = new Frota();
 frota.AdicionarVeiculo(onix);
