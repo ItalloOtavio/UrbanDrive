@@ -1,66 +1,71 @@
-﻿using UrbanDrive.Models.Entities;
+﻿using System;
+using UrbanDrive.Models;
+using UrbanDrive.Models.Entities;
 
-Console.WriteLine("=== CADASTRO DE VEICULOS VALIDOS ===");
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine("==================================================");
+Console.WriteLine("        URBANDRIVE - DEMONSTRADOR SPRINT 2        ");
+Console.WriteLine("==================================================");
+Console.ResetColor();
 
+// 1. Motorista com CNH (Composicao)
+Console.WriteLine("\n=== [1] MOTORISTA E CNH (COMPOSIÇÃO) ===");
+DateTime validadeFutura = DateTime.Today.AddYears(4);
+Motorista motorista = new Motorista(
+    "Wagner Junior",
+    "123.456.789-00",
+    "98765432100",
+    "B",
+    validadeFutura
+);
+
+Console.WriteLine($"Motorista: {motorista.Nome} | CPF: {motorista.CPF}");
+Console.WriteLine($"CNH vinculada: N.º {motorista.Habilitacao.Numero} | Categoria: {motorista.Habilitacao.Categoria} | Validade: {motorista.Habilitacao.DataValidade:dd/MM/yyyy} (Válida: {motorista.Habilitacao.EstaValida()})");
+
+// 2. Veiculos e Frota (Agregacao)
+Console.WriteLine("\n=== [2] VEÍCULOS E FROTA (AGREGAÇÃO) ===");
 Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
+ConfiguradorSistema.RegistrarVeiculoCriado();
+
 Veiculo hb20 = new Veiculo(2, "XYZ9A87", "HB20", 140);
+ConfiguradorSistema.RegistrarVeiculoCriado();
+
 Veiculo kwid = new Veiculo(3, "QWE4R56", "Kwid", 120);
+ConfiguradorSistema.RegistrarVeiculoCriado();
 
-ExibirVeiculo(onix);
-ExibirVeiculo(hb20);
-ExibirVeiculo(kwid);
+Frota frota = new Frota();
+frota.AdicionarVeiculo(onix);
+frota.AdicionarVeiculo(hb20);
+frota.AdicionarVeiculo(kwid);
 
-Console.WriteLine();
-Console.WriteLine("=== TENTATIVA DE CADASTRO DE VEICULOS INVALIDOS ===");
-
-TentarCriarVeiculo("Id zero", 0, "DEF5G67", "Mobi", 100);
-TentarCriarVeiculo("Placa vazia", 4, "", "Mobi", 100);
-TentarCriarVeiculo("Placa nula", 4, null!, "Mobi", 100);
-TentarCriarVeiculo("Modelo so com espacos", 4, "DEF5G67", "   ", 100);
-TentarCriarVeiculo("Diaria negativa", 4, "DEF5G67", "Mobi", -50);
-
-Console.WriteLine();
-Console.WriteLine("=== ALTERACAO DOS DADOS ===");
-
-onix.ValorBaseDiaria = 200;
-Console.WriteLine("Nova diaria do Onix: R$ " + onix.ValorBaseDiaria.ToString("F2"));
-
-Console.WriteLine("Tentando alterar a placa do Onix para vazia...");
-
-try
+var veiculosDaFrota = frota.ListarVeiculos();
+Console.WriteLine($"Total de veículos gerenciados na frota: {veiculosDaFrota.Count}");
+foreach (var v in veiculosDaFrota)
 {
-    onix.Placa = "";
-}
-catch (ArgumentException erro)
-{
-    Console.WriteLine("Erro: " + erro.Message);
+    Console.WriteLine($"  - [ID {v.Id}] {v.Modelo} | Placa: {v.Placa} | Diária: R$ {v.ValorBaseDiaria:F2}");
 }
 
-Console.WriteLine("Placa mantida: " + onix.Placa);
+// 3. Membros Estáticos (ConfiguradorSistema)
+Console.WriteLine("\n=== [3] MEMBROS ESTÁTICOS (CONFIGURADORSISTEMA) ===");
+ConfiguradorSistema.TaxaSeguro = 25.00;
+Console.WriteLine($"Total de veículos registrados globalmente: {ConfiguradorSistema.TotalVeiculosCriados}");
+Console.WriteLine($"Taxa de seguro configurada no sistema: R$ {ConfiguradorSistema.TaxaSeguro:F2}");
 
-Console.WriteLine();
-Console.WriteLine("Demonstracao finalizada sem erros.");
+// 4. Locacao sendo criada (Associacao)
+Console.WriteLine("\n=== [4] CRIAÇÃO DE LOCAÇÃO (ASSOCIAÇÃO) ===");
+int diasLocacao = 5;
+Locacao locacao = new Locacao(motorista, onix, diasLocacao);
 
+double custoDiarias = locacao.Dias * locacao.Veiculo.ValorBaseDiaria;
+double custoTotal = custoDiarias + (ConfiguradorSistema.TaxaSeguro * locacao.Dias);
 
-static void ExibirVeiculo(Veiculo veiculo)
-{
-    Console.WriteLine("Id: " + veiculo.Id
-        + " | Placa: " + veiculo.Placa
-        + " | Modelo: " + veiculo.Modelo
-        + " | Diaria: R$ " + veiculo.ValorBaseDiaria.ToString("F2"));
-}
+Console.WriteLine($"Locação criada com sucesso!");
+Console.WriteLine($"Motorista: {locacao.Motorista.Nome} (CNH: {locacao.Motorista.Habilitacao.Numero})");
+Console.WriteLine($"Veículo alugado: {locacao.Veiculo.Modelo} (Placa: {locacao.Veiculo.Placa})");
+Console.WriteLine($"Período: {locacao.Dias} dias");
+Console.WriteLine($"Subtotal diárias: R$ {custoDiarias:F2}");
+Console.WriteLine($"Total com seguro do sistema: R$ {custoTotal:F2}");
 
-static void TentarCriarVeiculo(string descricao, int id, string placa, string modelo, double valorBaseDiaria)
-{
-    Console.WriteLine("Tentando cadastrar veiculo com " + descricao + "...");
-
-    try
-    {
-        Veiculo veiculo = new Veiculo(id, placa, modelo, valorBaseDiaria);
-        Console.WriteLine("Veiculo cadastrado: " + veiculo.Placa);
-    }
-    catch (ArgumentException erro)
-    {
-        Console.WriteLine("  Erro: " + erro.Message);
-    }
-}
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine("\nDemonstração da Sprint 2 finalizada com sucesso!");
+Console.ResetColor();
