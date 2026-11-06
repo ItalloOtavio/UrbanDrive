@@ -1,4 +1,5 @@
 
+using UrbanDrive.Models;
 namespace UrbanDrive.Models.Entities;
 
 public class Veiculo
@@ -80,6 +81,8 @@ public class Veiculo
         Placa = placa;
         Modelo = modelo;
         ValorBaseDiaria = valorBaseDiaria;
+
+        ConfiguradorSistema.RegistrarVeiculoCriado();
     }
 
 }
