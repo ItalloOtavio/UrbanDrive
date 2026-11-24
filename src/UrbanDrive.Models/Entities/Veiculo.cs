@@ -85,4 +85,15 @@ public class Veiculo
         ConfiguradorSistema.RegistrarVeiculoCriado();
     }
 
+      public virtual double CalcularAluguel(int dias)
+    {
+        if (dias <= 0)
+        {
+            throw new ArgumentOutOfRangeException(
+                nameof(dias), "A quantidade de dias deve ser maior que zero.");
+        }
+
+        return ValorBaseDiaria * dias;
+    }
+
 }
