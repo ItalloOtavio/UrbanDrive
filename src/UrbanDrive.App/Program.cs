@@ -4,7 +4,7 @@ using UrbanDrive.Models.Entities;
 
 Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("==================================================");
-Console.WriteLine("        URBANDRIVE - DEMONSTRADOR SPRINT 2        ");
+Console.WriteLine("        URBANDRIVE - DEMONSTRADOR SPRINT 3        ");
 Console.WriteLine("==================================================");
 Console.ResetColor();
 
@@ -24,9 +24,9 @@ Console.WriteLine($"CNH vinculada: N.º {motorista.Habilitacao.Numero} | Categor
 
 // 2. Veiculos e Frota (Agregacao)
 Console.WriteLine("\n=== [2] VEÍCULOS E FROTA (AGREGAÇÃO) ===");
-Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
-Veiculo hb20 = new Veiculo(2, "XYZ9A87", "HB20", 140);
-Veiculo kwid = new Veiculo(3, "QWE4R56", "Kwid", 120);
+Carro onix = new Carro(1, "ABC1D23", "Onix", 150, 4);
+Carro hb20 = new Carro(2, "XYZ9A87", "HB20", 140, 4);
+Carro kwid = new Carro(3, "QWE4R56", "Kwid", 120, 4);
 
 Frota frota = new Frota();
 frota.AdicionarVeiculo(onix);
@@ -62,5 +62,5 @@ Console.WriteLine($"Subtotal diárias: R$ {custoDiarias:F2}");
 Console.WriteLine($"Total com seguro do sistema: R$ {custoTotal:F2}");
 
 Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine("\nDemonstração da Sprint 2 finalizada com sucesso!");
+Console.WriteLine("\nDemonstração da Sprint 3 finalizada com sucesso!");
 Console.ResetColor();
