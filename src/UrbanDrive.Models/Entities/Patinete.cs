@@ -23,4 +23,16 @@ public sealed class Patinete : Veiculo
     {
         AutonomiaBateria = autonomiaBateria;
     }
+
+     public override double CalcularAluguel(int dias)
+    {
+        double total = base.CalcularAluguel(dias);
+
+        if (dias >= 7)
+        {
+            total *= 0.90;
+        }
+
+        return total;
+    }
 }

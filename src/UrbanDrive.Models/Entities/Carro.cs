@@ -10,5 +10,12 @@ namespace UrbanDrive.Models.Entities
         {
             QuantidadePortas = quantidadePortas;
         }
+
+        public override double CalcularAluguel(int dias)
+        {
+            double valorDiarias = base.CalcularAluguel(dias);
+            return valorDiarias + ConfiguradorSistema.TaxaSeguro * dias;
+        }
+        
     }
 }
