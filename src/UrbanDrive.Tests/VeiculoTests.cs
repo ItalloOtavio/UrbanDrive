@@ -133,4 +133,39 @@ public class VeiculoTests
 
         Assert.Equal(1, veiculo.Id);
     }
+
+    // Sobrecarga de manutencao
+
+    [Fact]
+    public void RealizarManutencao_SemParametros_RegistraManutencaoGeral()
+    {
+        Veiculo veiculo = CriarVeiculoValido();
+
+        string resultado = veiculo.RealizarManutencao();
+
+        Assert.Contains("Manutencao geral", resultado);
+        Assert.Single(veiculo.HistoricoManutencoes);
+    }
+
+    [Fact]
+    public void RealizarManutencao_ComPecaSubstituida_RegistraPecaTrocada()
+    {
+        Veiculo veiculo = CriarVeiculoValido();
+
+        string resultado = veiculo.RealizarManutencao("Pastilha de freio");
+
+        Assert.Contains("Pastilha de freio", resultado);
+        Assert.Single(veiculo.HistoricoManutencoes);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void RealizarManutencao_ComPecaInvalida_LancaArgumentException(string? pecaInvalida)
+    {
+        Veiculo veiculo = CriarVeiculoValido();
+
+        Assert.Throws<ArgumentException>(() => veiculo.RealizarManutencao(pecaInvalida!));
+    }
 }

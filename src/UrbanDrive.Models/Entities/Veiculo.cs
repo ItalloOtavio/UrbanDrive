@@ -1,15 +1,13 @@
-
 using UrbanDrive.Models;
 namespace UrbanDrive.Models.Entities;
 
 public class Veiculo
 {
-
     private int id;
     private string placa = "";
     private string modelo = "";
     private double valorBaseDiaria;
-
+    private List<string> historicoManutencoes = new List<string>();
 
     public int Id
     {
@@ -25,8 +23,6 @@ public class Veiculo
         }
     }
 
-
-    
     public string Placa
     {
         get { return placa; }
@@ -40,8 +36,6 @@ public class Veiculo
             placa = value;
         }
     }
-
-
 
     public string Modelo
     {
@@ -57,8 +51,6 @@ public class Veiculo
         }
     }
 
-
-
     public double ValorBaseDiaria
     {
         get { return valorBaseDiaria; }
@@ -73,7 +65,10 @@ public class Veiculo
         }
     }
 
-
+    public IReadOnlyList<string> HistoricoManutencoes
+    {
+        get { return historicoManutencoes.AsReadOnly(); }
+    }
 
     public Veiculo(int id, string placa, string modelo, double valorBaseDiaria)
     {
@@ -85,7 +80,7 @@ public class Veiculo
         ConfiguradorSistema.RegistrarVeiculoCriado();
     }
 
-      public virtual double CalcularAluguel(int dias)
+    public virtual double CalcularAluguel(int dias)
     {
         if (dias <= 0)
         {
@@ -96,4 +91,22 @@ public class Veiculo
         return ValorBaseDiaria * dias;
     }
 
+    public string RealizarManutencao()
+    {
+        string registro = $"Manutencao geral realizada no veiculo {Modelo} ({Placa}).";
+        historicoManutencoes.Add(registro);
+        return registro;
+    }
+
+    public string RealizarManutencao(string pecaSubstituida)
+    {
+        if (string.IsNullOrWhiteSpace(pecaSubstituida))
+        {
+            throw new ArgumentException("Nome da peca substituida invalido!", nameof(pecaSubstituida));
+        }
+
+        string registro = $"Manutencao realizada no veiculo {Modelo} ({Placa}) com substituicao da peca: {pecaSubstituida}.";
+        historicoManutencoes.Add(registro);
+        return registro;
+    }
 }
