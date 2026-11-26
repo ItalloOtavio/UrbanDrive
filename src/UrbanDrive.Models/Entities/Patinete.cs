@@ -1,8 +1,9 @@
 namespace UrbanDrive.Models.Entities;
 
-public sealed class Patinete : Veiculo
+public sealed class Patinete : Veiculo, IEletrico
 {
     private int autonomiaBateria;
+    private int nivelBateria = 100;
 
     public int AutonomiaBateria
     {
@@ -18,13 +19,32 @@ public sealed class Patinete : Veiculo
         }
     }
 
+    public int NivelBateria
+    {
+        get { return nivelBateria; }
+        set
+        {
+            if (value < 0 || value > 100)
+            {
+                throw new ArgumentOutOfRangeException(nameof(NivelBateria), "O nível da bateria deve estar entre 0 e 100.");
+            }
+
+            nivelBateria = value;
+        }
+    }
+
     public Patinete(int id, string placa, string modelo, double valorBaseDiaria, int autonomiaBateria)
         : base(id, placa, modelo, valorBaseDiaria)
     {
         AutonomiaBateria = autonomiaBateria;
     }
 
-     public override double CalcularAluguel(int dias)
+    public void Recarregar()
+    {
+        NivelBateria = 100;
+    }
+
+    public override double CalcularAluguel(int dias)
     {
         double total = base.CalcularAluguel(dias);
 
