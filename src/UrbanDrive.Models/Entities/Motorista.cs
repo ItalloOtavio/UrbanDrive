@@ -12,6 +12,16 @@ public class Motorista : IImprimivel
     }
     public Motorista(string nome, string cpf, string numeroCNH, string categoria, DateTime validadeCNH)
     {
+        if (string.IsNullOrWhiteSpace(nome))
+        {
+            throw new ArgumentException("Nome do motorista invalido!", nameof(nome));
+        }
+
+        if (string.IsNullOrWhiteSpace(cpf))
+        {
+            throw new ArgumentException("CPF do motorista invalido!", nameof(cpf));
+        }
+
         Nome = nome;
         CPF = cpf;
 

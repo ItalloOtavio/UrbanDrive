@@ -221,4 +221,99 @@ public class RelacionamentosTests
 
         Assert.Throws<ArgumentNullException>(() => new Locacao(motorista, null!, 3));
     }
+
+    // Pendencias da sprint 2 (issue #51)
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void Motorista_ComNomeInvalido_LancaArgumentException(string? nome)
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(
+            () => new Motorista(nome!, "12345678900", "11122233344", "B", DateTime.Today.AddYears(1)));
+
+        Assert.Equal("nome", ex.ParamName);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void Motorista_ComCPFInvalido_LancaArgumentException(string? cpf)
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(
+            () => new Motorista("Ana", cpf!, "11122233344", "B", DateTime.Today.AddYears(1)));
+
+        Assert.Equal("cpf", ex.ParamName);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void Motorista_ComNumeroDaCNHInvalido_LancaArgumentException(string? numeroCNH)
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(
+            () => new Motorista("Ana", "12345678900", numeroCNH!, "B", DateTime.Today.AddYears(1)));
+
+        Assert.Equal("numero", ex.ParamName);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void Motorista_ComCategoriaDaCNHInvalida_LancaArgumentException(string? categoria)
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(
+            () => new Motorista("Ana", "12345678900", "11122233344", categoria!, DateTime.Today.AddYears(1)));
+
+        Assert.Equal("categoria", ex.ParamName);
+    }
+
+    [Fact]
+    public void Frota_AoAdicionarVeiculoNulo_LancaArgumentNullException()
+    {
+        Frota frota = new Frota();
+
+        Assert.Throws<ArgumentNullException>(() => frota.AdicionarVeiculo(null!));
+    }
+
+    [Fact]
+    public void Frota_PlacaRepetidaComMaiusculasDiferentes_NaoAdicionaOSegundoVeiculo()
+    {
+        Frota frota = new Frota();
+        frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
+
+        bool adicionou = frota.AdicionarVeiculo(new Carro(2, "abc1d23", "HB20", 140, 4));
+
+        Assert.False(adicionou);
+        Assert.Single(frota.ListarVeiculos());
+    }
+
+    [Fact]
+    public void Frota_BuscarERemover_IgnoramMaiusculasEEspacos()
+    {
+        Frota frota = new Frota();
+        Carro onix = new Carro(1, "ABC1D23", "Onix", 150, 4);
+        frota.AdicionarVeiculo(onix);
+
+        Assert.Same(onix, frota.BuscarPorPlaca(" abc1d23 "));
+        Assert.True(frota.RemoverVeiculo("abc1D23"));
+        Assert.Empty(frota.ListarVeiculos());
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void Frota_BuscarPorPlacaVazia_RetornaNulo(string? placa)
+    {
+        Frota frota = new Frota();
+        frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
+
+        Assert.Null(frota.BuscarPorPlaca(placa!));
+        Assert.False(frota.RemoverVeiculo(placa!));
+    }
 }

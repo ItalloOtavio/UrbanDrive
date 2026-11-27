@@ -168,4 +168,34 @@ public class VeiculoTests
 
         Assert.Throws<ArgumentException>(() => veiculo.RealizarManutencao(pecaInvalida!));
     }
+
+    // Pendencias das sprints 1 e 3 (issue #51)
+
+    [Fact]
+    public void Placa_Invalida_ExcecaoIdentificaOCampo()
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Carro(1, "", "Onix", 150, 4));
+
+        Assert.Equal("Placa", ex.ParamName);
+    }
+
+    [Fact]
+    public void Modelo_Invalido_ExcecaoIdentificaOCampo()
+    {
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Carro(1, "ABC1D23", "", 150, 4));
+
+        Assert.Equal("Modelo", ex.ParamName);
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-3)]
+    public void CalcularAluguel_ComDiasMenorOuIgualAZero_LancaArgumentOutOfRangeException(int dias)
+    {
+        Veiculo carro = new Carro(1, "ABC1D23", "Onix", 150, 4);
+        Veiculo patinete = new Patinete(2, "PAT0001", "Xiaomi Pro", 40, 35);
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => carro.CalcularAluguel(dias));
+        Assert.Throws<ArgumentOutOfRangeException>(() => patinete.CalcularAluguel(dias));
+    }
 }
