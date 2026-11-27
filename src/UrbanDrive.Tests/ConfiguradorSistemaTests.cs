@@ -21,7 +21,7 @@ public class ConfiguradorSistemaTests
     {
         int antes = ConfiguradorSistema.TotalVeiculosCriados;
 
-        new Veiculo(1, "ABC1D23", "Onix", 150);
+        	new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         Assert.Equal(antes + 1, ConfiguradorSistema.TotalVeiculosCriados);
     }
@@ -31,9 +31,9 @@ public class ConfiguradorSistemaTests
     {
         int antes = ConfiguradorSistema.TotalVeiculosCriados;
 
-        new Veiculo(1, "ABC1D23", "Onix", 150);
-        new Veiculo(2, "XYZ9A87", "HB20", 140);
-        new Veiculo(3, "QWE4R56", "Kwid", 120);
+        new Carro(1, "ABC1D23", "Onix", 150, 4);
+        new Carro(2, "XYZ9A87", "HB20", 140, 4);
+        new Carro(3, "QWE4R56", "Kwid", 120, 4);
 
         Assert.Equal(antes + 3, ConfiguradorSistema.TotalVeiculosCriados);
     }
@@ -43,7 +43,7 @@ public class ConfiguradorSistemaTests
     {
         int antes = ConfiguradorSistema.TotalVeiculosCriados;
 
-        Assert.Throws<ArgumentException>(() => new Veiculo(1, "", "Onix", 150));
+        Assert.Throws<ArgumentException>(() => new Carro(1, "", "Onix", 150, 4));
 
         Assert.Equal(antes, ConfiguradorSistema.TotalVeiculosCriados);
     }
@@ -55,8 +55,8 @@ public class ConfiguradorSistemaTests
         Frota frotaA = new Frota();
         Frota frotaB = new Frota();
 
-        frotaA.AdicionarVeiculo(new Veiculo(1, "ABC1D23", "Onix", 150));
-        frotaB.AdicionarVeiculo(new Veiculo(2, "XYZ9A87", "HB20", 140));
+        frotaA.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
+        frotaB.AdicionarVeiculo(new Carro(2, "XYZ9A87", "HB20", 140, 4));
 
         Assert.Equal(antes + 2, ConfiguradorSistema.TotalVeiculosCriados);
     }

@@ -6,7 +6,7 @@ public class VeiculoTests
 {
     private static Veiculo CriarVeiculoValido()
     {
-        return new Veiculo(1, "ABC1D23", "Onix", 150);
+        return new Carro(1, "ABC1D23", "Onix", 150, 4);
     }
 
     // Criacao com dados validos
@@ -14,7 +14,7 @@ public class VeiculoTests
     [Fact]
     public void Construtor_ComDadosValidos_PreservaTodosOsValores()
     {
-        Veiculo veiculo = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo veiculo = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         Assert.Equal(1, veiculo.Id);
         Assert.Equal("ABC1D23", veiculo.Placa);
@@ -30,7 +30,7 @@ public class VeiculoTests
     [InlineData("   ")]
     public void Construtor_ComPlacaInvalida_LancaArgumentException(string? placa)
     {
-        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Veiculo(1, placa!, "Onix", 150));
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Carro(1, placa!, "Onix", 150, 4));
 
         Assert.Contains("Placa", ex.Message);
     }
@@ -41,7 +41,7 @@ public class VeiculoTests
     [InlineData("   ")]
     public void Construtor_ComModeloInvalido_LancaArgumentException(string? modelo)
     {
-        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Veiculo(1, "ABC1D23", modelo!, 150));
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => new Carro(1, "ABC1D23", modelo!, 150, 4));
 
         Assert.Contains("Modelo", ex.Message);
     }
@@ -51,7 +51,7 @@ public class VeiculoTests
     [InlineData(-1)]
     public void Construtor_ComValorDiariaMenorOuIgualAZero_LancaArgumentOutOfRangeException(double valorDiaria)
     {
-        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Veiculo(1, "ABC1D23", "Onix", valorDiaria));
+        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Carro(1, "ABC1D23", "Onix", valorDiaria, 4));
 
         Assert.Equal(nameof(Veiculo.ValorBaseDiaria), ex.ParamName);
     }
@@ -61,7 +61,7 @@ public class VeiculoTests
     [InlineData(-1)]
     public void Construtor_ComIdMenorOuIgualAZero_LancaArgumentOutOfRangeException(int id)
     {
-        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Veiculo(id, "ABC1D23", "Onix", 150));
+        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Carro(id, "ABC1D23", "Onix", 150, 4));
 
         Assert.Equal(nameof(Veiculo.Id), ex.ParamName);
     }
