@@ -1,11 +1,17 @@
 namespace UrbanDrive.Models.Entities;
 
-public class Locacao
+public class Locacao : IImprimivel
 {
     public Motorista Motorista { get; private set; }
     public Veiculo Veiculo { get; private set; }
     public int Dias { get; private set; }
 
+    public string GerarRelatorio()
+    {
+        double total = Veiculo.CalcularAluguel(Dias);
+
+        return $"Motorista: {Motorista.Nome} | Veículo: {Veiculo.Modelo} | Dias: {Dias} | Total: R$ {total:F2}";
+    }
     public Locacao(Motorista motorista, Veiculo veiculo, int dias)
     {
         if (motorista == null)

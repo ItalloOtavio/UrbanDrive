@@ -1,9 +1,14 @@
 
 namespace UrbanDrive.Models.Entities;
 
-public class Frota
+public class Frota : IImprimivel
 {
     private List<Veiculo> veiculos = new List<Veiculo>();
+
+    public string GerarRelatorio()
+    {
+        return $"Quantidade de veículos na frota: {veiculos.Count}";
+    }
 
     public bool AdicionarVeiculo(Veiculo veiculo)
     {

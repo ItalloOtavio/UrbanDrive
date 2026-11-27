@@ -1,7 +1,7 @@
 using UrbanDrive.Models;
 namespace UrbanDrive.Models.Entities;
 
-public abstract class Veiculo
+public abstract class Veiculo : IImprimivel
 {
     private int id;
     private string placa = "";
@@ -80,6 +80,10 @@ public abstract class Veiculo
         ConfiguradorSistema.RegistrarVeiculoCriado();
     }
 
+        public string GerarRelatorio()
+    {
+        return $"Modelo: {Modelo} | Placa: {Placa} | Diária: R$ {ValorBaseDiaria:F2}";
+    }
     public virtual double CalcularAluguel(int dias)
     {
         if (dias <= 0)
