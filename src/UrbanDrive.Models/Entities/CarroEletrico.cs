@@ -28,4 +28,9 @@ public class CarroEletrico : Carro, IEletrico
     {
         NivelBateria = 100;
     }
+
+    public override string GerarRelatorio()
+    {
+        return $"{base.GerarRelatorio()} | Elétrico | Bateria: {NivelBateria}%";
+    }
 }

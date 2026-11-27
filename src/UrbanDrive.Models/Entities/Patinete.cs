@@ -55,4 +55,9 @@ public sealed class Patinete : Veiculo, IEletrico
 
         return total;
     }
+
+    public override string GerarRelatorio()
+    {
+        return $"[Patinete] {base.GerarRelatorio()} | Autonomia: {AutonomiaBateria} km | Bateria: {NivelBateria}%";
+    }
 }
