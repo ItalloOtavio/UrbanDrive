@@ -30,7 +30,7 @@ public abstract class Veiculo : IImprimivel
         {
             if (value == null || value.Trim() == "")
             {
-                throw new ArgumentException("Placa invalida!");
+                throw new ArgumentException("Placa invalida!", nameof(Placa));
             }
 
             placa = value;
@@ -44,7 +44,7 @@ public abstract class Veiculo : IImprimivel
         {
             if (value == null || value.Trim() == "")
             {
-                throw new ArgumentException("Modelo invalido!");
+                throw new ArgumentException("Modelo invalido!", nameof(Modelo));
             }
 
             modelo = value;

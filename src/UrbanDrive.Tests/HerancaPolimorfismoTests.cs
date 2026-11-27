@@ -3,6 +3,9 @@ using UrbanDrive.Models.Entities;
 
 namespace UrbanDrive.Tests;
 
+// Usa ConfiguradorSistema.TaxaSeguro (estatico): roda na mesma colecao dos testes
+// de membros estaticos para que outro teste nao troque a taxa no meio do calculo.
+[Collection("MembrosEstaticos")]
 public class HerancaPolimorfismoTests
 {
     // 1. Testes de heranca e calculo especifico de cada subtipo
@@ -89,5 +92,23 @@ public class HerancaPolimorfismoTests
         Assert.Contains("Manutencao geral", manutencaoGeralPatinete);
         Assert.Contains("Bateria de litio", manutencaoPecaPatinete);
         Assert.Equal(2, patinete.HistoricoManutencoes.Count);
+    }
+
+    // Pendencias da sprint 3 (issue #51)
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-2)]
+    public void Carro_ComQuantidadeDePortasMenorOuIgualAZero_LancaArgumentOutOfRangeException(int portas)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Carro(1, "ABC1D23", "Onix", 150, portas));
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-10)]
+    public void Patinete_ComAutonomiaMenorOuIgualAZero_LancaArgumentOutOfRangeException(int autonomia)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Patinete(1, "PAT0001", "Xiaomi Pro", 40, autonomia));
     }
 }

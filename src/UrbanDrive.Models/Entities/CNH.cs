@@ -9,6 +9,16 @@ public class CNH
 
     public CNH(string numero, string categoria, DateTime dataValidade)
     {
+        if (string.IsNullOrWhiteSpace(numero))
+        {
+            throw new ArgumentException("Numero da CNH invalido!", nameof(numero));
+        }
+
+        if (string.IsNullOrWhiteSpace(categoria))
+        {
+            throw new ArgumentException("Categoria da CNH invalida!", nameof(categoria));
+        }
+
         Numero = numero;
         Categoria = categoria;
         DataValidade = dataValidade;
