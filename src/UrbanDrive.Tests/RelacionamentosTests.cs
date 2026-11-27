@@ -81,7 +81,7 @@ public class RelacionamentosTests
     public void Frota_AoAdicionarVeiculo_PassaAListarOVeiculo()
     {
         Frota frota = new Frota();
-        Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo onix = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         bool adicionou = frota.AdicionarVeiculo(onix);
 
@@ -94,9 +94,9 @@ public class RelacionamentosTests
     public void Frota_ComPlacaRepetida_NaoAdicionaOSegundoVeiculo()
     {
         Frota frota = new Frota();
-        frota.AdicionarVeiculo(new Veiculo(1, "ABC1D23", "Onix", 150));
+        	frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
 
-        bool adicionou = frota.AdicionarVeiculo(new Veiculo(2, "ABC1D23", "HB20", 140));
+        bool adicionou = frota.AdicionarVeiculo(new Carro(2, "ABC1D23", "HB20", 140, 4));
 
         Assert.False(adicionou);
         Assert.Single(frota.ListarVeiculos());
@@ -107,9 +107,9 @@ public class RelacionamentosTests
     public void Frota_BuscarPorPlacaExistente_RetornaOVeiculo()
     {
         Frota frota = new Frota();
-        Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo onix = new Carro(1, "ABC1D23", "Onix", 150, 4);
         frota.AdicionarVeiculo(onix);
-        frota.AdicionarVeiculo(new Veiculo(2, "XYZ9A87", "HB20", 140));
+        frota.AdicionarVeiculo(new Carro(2, "XYZ9A87", "HB20", 140, 4));
 
         Veiculo? encontrado = frota.BuscarPorPlaca("ABC1D23");
 
@@ -120,7 +120,7 @@ public class RelacionamentosTests
     public void Frota_BuscarPorPlacaInexistente_RetornaNulo()
     {
         Frota frota = new Frota();
-        frota.AdicionarVeiculo(new Veiculo(1, "ABC1D23", "Onix", 150));
+        	frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
 
         Veiculo? encontrado = frota.BuscarPorPlaca("ZZZ0Z00");
 
@@ -131,7 +131,7 @@ public class RelacionamentosTests
     public void Frota_AoRemoverVeiculo_VeiculoSaiDaFrotaMasContinuaExistindo()
     {
         Frota frota = new Frota();
-        Veiculo onix = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo onix = new Carro(1, "ABC1D23", "Onix", 150, 4);
         frota.AdicionarVeiculo(onix);
 
         bool removeu = frota.RemoverVeiculo("ABC1D23");
@@ -147,7 +147,7 @@ public class RelacionamentosTests
     public void Frota_AoRemoverPlacaInexistente_RetornaFalso()
     {
         Frota frota = new Frota();
-        frota.AdicionarVeiculo(new Veiculo(1, "ABC1D23", "Onix", 150));
+        	frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
 
         bool removeu = frota.RemoverVeiculo("ZZZ0Z00");
 
@@ -159,7 +159,7 @@ public class RelacionamentosTests
     public void Frota_ListarVeiculos_RetornaCopiaDaLista()
     {
         Frota frota = new Frota();
-        frota.AdicionarVeiculo(new Veiculo(1, "ABC1D23", "Onix", 150));
+        	frota.AdicionarVeiculo(new Carro(1, "ABC1D23", "Onix", 150, 4));
 
         List<Veiculo> lista = frota.ListarVeiculos();
         lista.Clear();
@@ -173,7 +173,7 @@ public class RelacionamentosTests
     public void Locacao_ComDadosValidos_LigaMotoristaEVeiculo()
     {
         Motorista motorista = CriarMotoristaValido();
-        Veiculo veiculo = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo veiculo = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         Locacao locacao = new Locacao(motorista, veiculo, 3);
 
@@ -188,7 +188,7 @@ public class RelacionamentosTests
     public void Locacao_ComDiasMenorOuIgualAZero_LancaArgumentOutOfRangeException(int dias)
     {
         Motorista motorista = CriarMotoristaValido();
-        Veiculo veiculo = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo veiculo = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Locacao(motorista, veiculo, dias));
 
@@ -199,7 +199,7 @@ public class RelacionamentosTests
     public void Locacao_ComCNHVencida_LancaInvalidOperationException()
     {
         Motorista motorista = CriarMotoristaComCNHVencida();
-        Veiculo veiculo = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo veiculo = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => new Locacao(motorista, veiculo, 3));
 
@@ -209,7 +209,7 @@ public class RelacionamentosTests
     [Fact]
     public void Locacao_SemMotorista_LancaArgumentNullException()
     {
-        Veiculo veiculo = new Veiculo(1, "ABC1D23", "Onix", 150);
+        Veiculo veiculo = new Carro(1, "ABC1D23", "Onix", 150, 4);
 
         Assert.Throws<ArgumentNullException>(() => new Locacao(null!, veiculo, 3));
     }

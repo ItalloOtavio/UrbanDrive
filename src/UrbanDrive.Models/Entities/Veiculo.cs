@@ -1,7 +1,7 @@
 using UrbanDrive.Models;
 namespace UrbanDrive.Models.Entities;
 
-public class Veiculo
+public abstract class Veiculo
 {
     private int id;
     private string placa = "";
@@ -70,7 +70,7 @@ public class Veiculo
         get { return historicoManutencoes.AsReadOnly(); }
     }
 
-    public Veiculo(int id, string placa, string modelo, double valorBaseDiaria)
+    protected Veiculo(int id, string placa, string modelo, double valorBaseDiaria)
     {
         Id = id;
         Placa = placa;
