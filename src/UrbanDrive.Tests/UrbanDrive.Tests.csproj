@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UrbanDrive.Models\UrbanDrive.Models.csproj" />
+    <ProjectReference Include="..\UrbanDrive.App\UrbanDrive.App.csproj" />
   </ItemGroup>
 
 </Project>

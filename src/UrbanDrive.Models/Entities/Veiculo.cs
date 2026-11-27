@@ -80,7 +80,8 @@ public abstract class Veiculo : IImprimivel
         ConfiguradorSistema.RegistrarVeiculoCriado();
     }
 
-        public string GerarRelatorio()
+    // virtual: cada tipo de veiculo acrescenta ao relatorio as suas caracteristicas proprias
+    public virtual string GerarRelatorio()
     {
         return $"Modelo: {Modelo} | Placa: {Placa} | Diária: R$ {ValorBaseDiaria:F2}";
     }

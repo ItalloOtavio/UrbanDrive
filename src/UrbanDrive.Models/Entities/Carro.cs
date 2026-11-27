@@ -16,6 +16,11 @@ namespace UrbanDrive.Models.Entities
             double valorDiarias = base.CalcularAluguel(dias);
             return valorDiarias + ConfiguradorSistema.TaxaSeguro * dias;
         }
+
+        public override string GerarRelatorio()
+        {
+            return $"[Carro] {base.GerarRelatorio()} | Portas: {QuantidadePortas}";
+        }
         
     }
 }
